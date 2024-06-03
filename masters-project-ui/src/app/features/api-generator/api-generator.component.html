@@ -1,0 +1,15 @@
+<div class="flex h-full min-h-0 w-full items-center justify-center">
+  <div class="h-full" *ngIf="isLoading$ | async" class="flex flex-col items-center gap-3">
+    <mat-spinner color="accent"></mat-spinner>
+    <span>Your project is being generated. Please wait...</span>
+  </div>
+  <app-capturing-form
+    class="h-full w-full overflow-visible"
+    *ngIf="!(isLoading$ | async)"
+    [surveyJson]="surveyModel"
+    [externalContext]="captureExternalContext$ | async"
+    (captureCompleted)="onCaptureComplete()"
+    (currentPageChanged)="onCapturePageChange($event)"
+    (valueChanged)="onCaptureValueChanged($event)"
+  ></app-capturing-form>
+</div>

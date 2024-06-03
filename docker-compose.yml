@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  angular-app:
+    build:
+      context: ./masters-project-ui
+      dockerfile: ./Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - spring-api
+    network_mode: "host"
+
+  spring-api:
+    build:
+      context: ./masters_thesis_api
+      dockerfile: ./Dockerfile
+    ports:
+      - "8081:8081"
+    network_mode: "host"
+
+  dotnet-service:
+    build:
+      context: ./MastersProject
+      dockerfile: ./Dockerfile
+    ports:
+      - "80:80"
+    network_mode: "host"
+
+networks:
+  my-network:
+    driver: bridge

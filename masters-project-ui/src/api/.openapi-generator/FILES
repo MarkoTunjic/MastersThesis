@@ -1,0 +1,16 @@
+.gitignore
+README.md
+api.module.ts
+api/api.ts
+api/crud-generator-controller.service.ts
+api/crud-generator-controller.serviceInterface.ts
+configuration.ts
+encoder.ts
+git_push.sh
+index.ts
+model/available-tables-dto.ts
+model/database-connection-data.ts
+model/generation-request-dto.ts
+model/models.ts
+param.ts
+variables.ts
